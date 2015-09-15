@@ -16,18 +16,17 @@ $(document).ready(function() {
 			var time = getTime();
 			var data = 'action=getlink&time=' + time;
 
-			$.getJSON('server/barrageServer.php', data, function(json) {
+			$.getJSON('./barrageServer.php', data, function(json) {
 				console.log('get');
 				var text = json.wx
-				if (text == "") {
+				if (text == null) {
 					return;
 				};
 				var _lable = $("<div style='right:20px;top:0px;opacity:1;color:" + getRandomColor() + ";'>" + text + "</div>");
 				$(".mask").append(_lable.show());
 				init_barrage();
 			});
-		}, 1000);
-
+		}, 100);
 	});
 	//发射弹幕
 	$(".send .s_btn").click(function() {
