@@ -1,11 +1,5 @@
-<!--
-data	:	2015-5-31
-author	:	zhe13
-email	:	wutianzhe123@gmail.com
-name 	:	基于Ajax(js2php)的弹幕系统
--->
 <?php
-//这边填写你自己的数据库
+header("Access-Control-Allow-Origin:*"); //允许任何访问(包括ajax跨域)  
 header("Content-Type:text/html;charset=utf-8"); 
 $hostname = SAE_MYSQL_HOST_M.':'.SAE_MYSQL_PORT;
 $dbuser = SAE_MYSQL_USER;
@@ -25,7 +19,7 @@ $time=rawurldecode($_GET[time]);
 if($action=="getlink"){ 
     $query=mysql_query("select * from weixin where CreateTime='$time'"); 
     $row=mysql_fetch_array($query); 
-    $list=array("wx"=>$row[Content]); 
+    $list=array("wx"=>$row[Content],"time"=>$time); 
     echo json_encode($list); 
 } 
 ?>
