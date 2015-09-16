@@ -1,5 +1,7 @@
 # Barrage
 ##微信弹幕系统
+
+[![Join the chat at https://gitter.im/zhe13/Barrage](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/zhe13/Barrage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 *wechat barrage system*
 >based on mysql/php/js
 
