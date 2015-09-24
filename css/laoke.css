@@ -1,0 +1,247 @@
+* {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after{
+	content: "  ";
+	display: table;
+}
+.clearfix:after{
+	clear: both;
+}
+
+body{
+	overflow: scroll;
+	overflow: hidden;
+}
+
+
+
+
+
+/*barrage*/
+
+#website{
+	width: 100%;
+}
+
+.barrage .screen{
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+}
+
+.barrage .screen .mask{
+	position: relative;
+	width: 100%;
+	/*background-color: #d2d5d5;*/
+	/*opacity: 0.3;*/
+	/*filter:alpha(opacity=30);*/
+	z-index:1;
+	background: rgba(32, 32, 32, 0.7);
+}
+
+/*动态生成的弹幕*/
+.barrage .screen .mask div{
+	position: absolute;
+	font-size: 20px;
+	font-weight:bold;
+	white-space:nowrap;
+	line-height:40px;
+	z-index:1000;
+}
+
+.barrage{
+	/*display: none;潘雨看这里*/
+	width: 100%;
+	height: 100%;
+}
+
+
+.send{
+	position: absolute;
+	z-index:1000;
+	bottom: 25px;
+	width: 100%;
+}
+
+.send input{
+	border:0;
+	outline:none;
+}
+
+.send .sendText{
+	width:56%;
+	height:40px;
+	line-height:10px;
+	font-size:20px;
+	font-family:"微软雅黑";
+	/*background: transparent -webkit-linear-gradient(#f9d597, #bc8758);*/
+	/*background: transparent linear-gradient(#f9d597, #bc8758);*/
+	background: rgba(255, 255, 255,0.6);
+	/*opacity: 0.3;*/
+	border-radius: 14px;
+	margin-right: 10px;
+	margin-left: 19%;
+	padding-left: 10px;
+	font-family:Monospace;
+	-webkit-box-shadow:2px 2px 2px #313131;
+	-moz-box-shadow:2px 2px 2px #313131;
+	box-shadow:2px 2px 2px #313131;
+}
+
+.send .sendBtn{
+	width:40px;
+	height:40px;
+	background: -webkit-linear-gradient(#ffffff, #9e9e9e);
+	background: linear-gradient(#ffffff, #9e9e9e);
+	opacity: 0.8;
+	color:#fff;
+	border: 4px solid #e7e7e7;
+	-webkit-box-shadow:2px 2px 2px #313131;
+	-moz-box-shadow:2px 2px 2px #313131;
+	box-shadow:2px 2px 2px #313131;
+	border-radius: 22px;
+	position: absolute;
+}
+
+.send .sendBtn:hover{
+	background: -webkit-linear-gradient(#9e9e9e, #ffffff);
+	background: linear-gradient(#c1c1c1, #ffffff);
+	opacity: 0.8;
+}
+
+
+
+
+/*--------------------------button start--------------------------*/
+
+/*按钮原始状态*/
+.menuHandle {
+	/*将Button外面的框的背景色和页面的背景色一样，或者直接把它设置成透明度=0*/
+	background: rgba(255,0,0, 0);
+	border: none;
+	width: 40px;
+	height: 35px;
+	padding: 0;
+	outline: none;
+	/*position 定位*/
+	position: absolute;
+	top: 30px;
+	right: 45px;
+	z-index: 2000;
+}
+
+.menuHandle div {
+	/*绝对定位，三个div就重叠在一起了*/
+	padding:0;
+	position: absolute;
+	top:17px;
+	width: 100%;
+	height: 2px;
+	background: #fff;
+	opacity: 1;
+	-webkit-box-shadow:2px 2px 2px #313131;
+	-moz-box-shadow:2px 2px 2px #313131;
+	box-shadow:2px 2px 2px #313131;
+}
+
+/*css3, 移动 第一条线and第三条线 Y的位置，*/
+.line1 {
+	transform: translate3d(0, -8px, 0);
+	-webkit-transform: translate3d(0, -8px, 0);
+}
+
+.line3 {
+	transform: translate3d(0, 8px, 0);
+	-webkit-transform: translate3d(0, 8px, 0);
+}
+
+/*transition 过渡效果，CSS3*/
+.line1,
+.line3 {
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	transition: transform 0.25s;
+	-webkit-transition: transform 0.25s;
+}
+
+.line2{
+	transition: opacity 0.15s;
+	-webkit-transition: opacity 0.15s;
+}
+
+/*mouseover  三条线的距离变大*/
+.OneHover{
+	transform: translate3d(0, -11px, 0);
+	-webkit-transform: translate3d(0, -11px, 0);
+}
+
+.ThreeHover{
+	transform: translate3d(0, 11px, 0);
+	-webkit-transform: translate3d(0, 11px, 0);
+}
+
+/*click  CSS3的3d旋转*/
+.TwoClick {
+	/*中间那条线，隐藏*/
+	opacity: 0.1;
+	display: none;
+}
+
+.OneClick {
+	/*rotate3d(x,y,z,angle)*/
+	transform: rotate3d(0, 0, 1, 45deg);
+	-webkit-transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.ThreeClick {
+	transform: rotate3d(0, 0, 1, -45deg);
+	-webkit-transform: rotate3d(0, 0, 1, -45deg);
+}
+
+/*--------------------------button end--------------------------*/
+
+
+
+
+
+
+@media screen and (max-width: 681px) {
+
+	.send{
+		bottom: 5px;
+	}
+
+	.send .sendText{
+		width:80%;
+		margin-left: 3%;
+	}
+
+	.send .sendBtn{
+		width:40px;
+		height:40px;
+		background-color: grey;
+		opacity: 0.8;
+		color:#fff;
+		border-radius: 22px;
+		position: absolute;
+	}
+
+	.menuHandle {
+		top: 15px;
+		right: 20px;
+	}
+
+}
+
+
+
+
+
+

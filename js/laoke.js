@@ -9,6 +9,11 @@ $(document).ready(function(){
 	console.log(time);
     
 	// css type
+
+    $("#website").height( $(window).height() );
+    $(".mask").height( $(window).height() );
+
+
 	$(".menuHandle").mouseover(function(){
         $(".line1").addClass("OneHover");
         $(".line3").addClass("ThreeHover");
@@ -35,8 +40,13 @@ $(document).ready(function(){
         }
     });
 	//css type end
-    
-	
+
+    //清除输入框
+    $(".sendText").click(function(){
+        $(".sendText").val("");
+    });
+
+
 	// barrage
     $(".menuHandle").click(function(){
         $(".barrage").toggle("slow");
@@ -47,7 +57,7 @@ $(document).ready(function(){
         if(text === ""){
             return;
         }
-        var barrage = $("<div style=‘right:20px;top:0px;opacity:1;color:red;'>"+text+"</div>");
+        var barrage = $("<div style=‘right:20px;top:0px;opacity:1;color:#fff9f8;font-family:Monospace;font-weight:normal;'>"+text+"</div>");
         $(".mask").append(barrage.show());
         console.log(text);
         initBarrage();
